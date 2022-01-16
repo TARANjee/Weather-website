@@ -16,7 +16,7 @@ const errorMessage = document.querySelector("#errorMessage");
 
 let data = {};
 const baseURL = "http://api.weatherapi.com/v1";
-const key = Weather.key;
+const key = Apikey;
 
 weatherDate.textContent = moment().format("h:mm a-ddd, D MMM 'YY");
 searchInput.value=""
