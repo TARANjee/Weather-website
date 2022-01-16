@@ -1,4 +1,5 @@
 const weatherDate = document.querySelector("#weatherDate");
+
 const degree = document.querySelector(".degree");
 const background = document.querySelector(".background");
 const backgroundChange = document.querySelector(".back");
@@ -9,12 +10,15 @@ const wind = document.querySelector("#wind");
 const uv = document.querySelector("#uv");
 const humidity = document.querySelector("#humidity");
 const icon = document.querySelector(".icon img");
+
 let data = {};
+const baseURL = "http://api.weatherapi.com/v1";
+const key = Weather.key;
 
 weatherDate.textContent = moment().format("h:mm a-ddd, D MMM 'YY");
 
 async function weatherapi() {
-    var res = await fetch("http://api.weatherapi.com/v1/current.json?key=5cb2b643e3cd4158a8f104557221501&q=auto:ip")
+    var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=auto:ip`)
     data = await res.json();
     show(data)
 }
@@ -36,18 +40,35 @@ function show(data) {
     wind.textContent = Math.round(data.current.wind_kph) + "km/h";
     icon.src = data.current.condition.icon;
 
-    if (data.current.condition.text == "Sunny")
-        background.style.backgroundImage = "url(img/sunny" + ".jpg)";
-    else if (data.current.condition.text == "Rainy")
-        background.style.backgroundImage = "url(img/rainy-day" + ".jpg)";
-    else if (data.current.condition.text == "Partly Cloudy")
-        background.style.backgroundImage = "url(img/Partly Cloudy" + ".jpg)";
-    else if (data.current.condition.text == "Cloudy")
-        background.style.backgroundImage = "url(img/cloudy" + ".jpg)";
-    else if (data.current.condition.text == "Mist")
-        background.style.backgroundImage = "url(img/mist" + ".jpg)";
-    else if (data.current.condition.text == "Clear")
-        background.style.backgroundImage = "url(img/night" + ".webp)";
-    else
-        background.style.backgroundImage = "url(img/night" + ".webp)";
+    backgroundImage();
+
+}
+function backgroundImage() {
+
+    if (data.current.is_day == 1) {
+        if (data.current.condition.text == "Sunny")
+            background.style.backgroundImage = "url(img/day/sunny" + ".jpg)";
+        else if (data.current.condition.text == "Rainy")
+            background.style.backgroundImage = "url(img/day/rainy-day" + ".jpg)";
+        else if (data.current.condition.text == "Partly cloudy")
+            background.style.backgroundImage = "url(img/day/Partly-Cloudy" + ".jpg)";
+        else if (data.current.condition.text == "Cloudy")
+            background.style.backgroundImage = "url(img/day/cloudy" + ".jpg)";
+        else if (data.current.condition.text == "Mist")
+            background.style.backgroundImage = "url(img/day/mist" + ".jpg)";
+        else
+            background.style.backgroundImage = "url(img/night/night" + ".webp)";
+    }
+    else {
+        if (data.current.condition.text == "Clear")
+            background.style.backgroundImage = "url(img/night/night" + ".jpg)";
+        else if (data.current.condition.text == "Partly cloudy")
+            background.style.backgroundImage = "url(img/night/partly-cloud" + ".jpg)";
+        else if (data.current.condition.text == "Cloudy")
+            background.style.backgroundImage = "url(img/night/partly-cloud" + ".jpg)";
+        else if (data.current.condition.text == "Mist")
+            background.style.backgroundImage = "url(img/day/mist" + ".jpg)";
+        else
+            background.style.backgroundImage = "url(img/night" + ".webp)";
+    }
 }
