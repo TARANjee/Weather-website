@@ -1,0 +1,82 @@
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+.main {
+  height: 100vh;
+  color: white;
+}
+.background {
+  background-image: url("./img/1310510.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 5s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+#weatherDate {
+  font-size: 15px;
+  font-weight: bold;
+}
+.weather-container {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 10%;
+}
+.main-weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.degree {
+  margin-left: 30px;
+  font-size: 80px;
+  flex-wrap: wrap;
+}
+.placeTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30px;
+}
+.location {
+  font-size: 45px;
+}
+.icon {
+}
+.details {
+  background-color: #36454f;
+  color: #999b9c;
+}
+.detail-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Weather APP</title>
+  </head>
+
+  <body>
+    <div class="row main">
+      <div class="col-8 background ">
+        <div class="weather-container">
+          <div class="container main-weather">
+            <div class="degree" >26 &deg</div>
+            <div class="placeTime">
+              <div class="location">London</div>
+              <div id='weatherDate'>10:36-Tuesday,22 Oct'19</div>
+            </div>
+            <div class="placeTime">
+              <div class="icon">
+               <img src="" alt="">
+              </div>
+              <div id="condition" style="font-size: 15px">Sunny</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 details">
+        <div style="margin: 10%">
+          <div style="color: white">Weather Details</div>
+          <div style="margin-top: 10%">
+            <div class="detail-items">
+              <div>Cloudy</div>
+              <div id="Cloudy" style="color: white">12%</div>
+            </div>
+            <div class="detail-items">
+              <div>Humidity</div>
+              <div id="humidity" style="color: white">78%</div>
+            </div>
+            <div class="detail-items">
+              <div>Wind</div>
+              <div id="wind" style="color: white">1km/h</div>
+            </div>
+            <div class="detail-items">
+              <div>UV</div>
+              <div id="uv" style="color: white">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./lib/moment.min.js"></script>
+    <script src="./index.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></scrip>
+    -->
+  </body>
+</html>
