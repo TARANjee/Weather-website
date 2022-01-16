@@ -1,7 +1,7 @@
 const weatherDate = document.querySelector("#weatherDate");
-
 const degree = document.querySelector(".degree");
 const background = document.querySelector(".background");
+const detailSection = document.querySelector("#detailSection");
 const backgroundChange = document.querySelector(".back");
 const locationName = document.querySelector(".location");
 const condition = document.querySelector("#condition");
@@ -10,19 +10,45 @@ const wind = document.querySelector("#wind");
 const uv = document.querySelector("#uv");
 const humidity = document.querySelector("#humidity");
 const icon = document.querySelector(".icon img");
+const searchBtn = document.querySelector("#searchLocation");
+const searchInput = document.querySelector("#searchInput");
+const errorMessage = document.querySelector("#errorMessage");
 
 let data = {};
 const baseURL = "http://api.weatherapi.com/v1";
 const key = Weather.key;
 
 weatherDate.textContent = moment().format("h:mm a-ddd, D MMM 'YY");
+searchInput.value=""
+async function weatherapi(city) {
+    try {
+        errorMessage.textContent=""
+        searchInput.value=""
+        if (!city)
+            var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=auto:ip`);
+        else
+            var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=${city}`);
+        data = await res.json();
+        show(data)
+        
+    } catch (error) {
+       errorMessage.textContent =data.error.message;
+    }
 
-async function weatherapi() {
-    var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=auto:ip`)
-    data = await res.json();
-    show(data)
+
 }
-weatherapi();
+
+searchBtn.addEventListener('click', () => weatherapi(searchInput.value));
+searchInput.addEventListener("keyup", function (e){
+    if (e.keyCode === 13) {
+        // Cancel the default action, if needed
+        e.preventDefault();
+        // Trigger the button element with a click
+        weatherapi(searchInput.value)
+       
+      }
+     
+});
 
 function show(data) {
     console.log(`data`, data)
@@ -72,3 +98,7 @@ function backgroundImage() {
             background.style.backgroundImage = "url(img/night" + ".webp)";
     }
 }
+
+
+
+weatherapi();

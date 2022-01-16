@@ -18,27 +18,41 @@
 
   <body>
     <div class="row main">
-      <div class="col-8 background ">
+      <div class="col-8 background">
         <div class="weather-container">
           <div class="container main-weather">
-            <div class="degree" >26 &deg</div>
+            <div class="degree">26 &deg</div>
             <div class="placeTime">
               <div class="location">London</div>
-              <div id='weatherDate'>10:36-Tuesday,22 Oct'19</div>
+              <div id="weatherDate">10:36-Tuesday,22 Oct'19</div>
             </div>
             <div class="placeTime">
               <div class="icon">
-               <img src="" alt="">
+                <img src="" alt="" />
               </div>
               <div id="condition" style="font-size: 15px">Sunny</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-4 details">
+      <div id="detailSection" class="col-4 details">
         <div style="margin: 10%">
           <div style="color: white">Weather Details</div>
           <div style="margin-top: 10%">
+            <div class="input-group m-2">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Another location"
+                required
+                id="searchInput"
+              />
+              <button id="searchLocation" type='submit' class="btn btn-outline-secondary" >
+                <image src="./img/icons8-search-60.png" width="50px" />
+              </button>
+            
+            </div>
+            <div id="errorMessage" ></div>
             <div class="detail-items">
               <div>Cloudy</div>
               <div id="Cloudy" style="color: white">12%</div>

@@ -80,3 +80,31 @@ body {
   margin-bottom: 20px;
 }
 
+@media  screen and (max-width: 850px) {
+
+  [class*="col-"]{
+    width: 100%;
+
+  }
+  .main-weather{
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .degree{
+    font-size:50px;
+  }
+  .location{
+    font-size:30px;
+  }
+  #weatherDate{
+    font-size:12px;
+  }
+}
+#errorMessage{
+  display: flex;
+  justify-content:center;
+  color:red;
+  margin-bottom: 20px;
+}
