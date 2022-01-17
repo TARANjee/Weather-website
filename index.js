@@ -16,7 +16,6 @@ const errorMessage = document.querySelector("#errorMessage");
 
 let data = {};
 const baseURL = "http://api.weatherapi.com/v1";
-const key ="5cb2b643e3cd4158a8f104557221501";
 
 weatherDate.textContent = moment().format("h:mm a-ddd, D MMM 'YY");
 searchInput.value=""
@@ -25,9 +24,9 @@ async function weatherapi(city) {
         errorMessage.textContent=""
         searchInput.value=""
         if (!city)
-            var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=auto:ip`);
+            var res = await fetch(`${baseURL}/forecast.json ?key=5cb2b643e3cd4158a8f104557221501&q=auto:ip`);
         else
-            var res = await fetch(`${baseURL}/forecast.json ?key=${key}&q=${city}`);
+            var res = await fetch(`${baseURL}/forecast.json ?key=5cb2b643e3cd4158a8f104557221501&q=${city}`);
         data = await res.json();
         show(data)
         
